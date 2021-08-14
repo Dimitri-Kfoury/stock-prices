@@ -1,0 +1,30 @@
+.stock-row {
+
+
+display: grid;
+background-color: aqua;
+grid-template-columns: repeat(7,1fr);
+grid-auto-rows: 100%;
+align-content: center;
+
+}
+
+.column-1{
+
+
+background-color: crimson;
+
+
+}
+
+.row-indicator {
+
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+
+
