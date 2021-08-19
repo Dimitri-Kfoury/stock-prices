@@ -1,14 +1,15 @@
 
 import React, { useEffect } from 'react';
-import {updateOptionActionCreator, selectSelectedOption, selectIsDisabled} from './stockSearchSlice'
+import {updateOptionActionCreator} from './stockSearchSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select';
-
+import { quote,selectIsFetchingQuote } from '../stock-row/stockRowSlice';
+import { fetchCandles,selectIsFetchingCandles } from '../stockChart/stockChartSlice';
 
 const options = [
   { value: 'AAPL', label: 'AAPL' },
   { value: 'AMZN', label: 'AMZN' },
-  { value: 'MSFT', label: 'MSFT' },
+ 
 ];
 const customStyles = {
   menu: (provided, state) => ({
@@ -40,14 +41,10 @@ const customStyles = {
 }
 export const StockSearch = () => { 
 
-const selectedOption = useSelector(selectSelectedOption);
-const isDisabled = useSelector(selectIsDisabled)
+const isDisabled = useSelector(selectIsFetchingQuote)
 const dispatch = useDispatch();
 
 useEffect(() => {
-
-  console.log(selectedOption)
-
 
 
 })
@@ -56,6 +53,8 @@ const handleChange = function(event) {
 
 
 dispatch(updateOptionActionCreator(event.value))
+dispatch(quote(event.value))
+dispatch(fetchCandles(event.value,15))
 
 }
 
@@ -63,7 +62,6 @@ return (
 
   <Select
   styles={customStyles}
-  value={selectedOption}
   onChange={handleChange}
   options={options}
   placeholder='search stocks'

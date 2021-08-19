@@ -10,7 +10,12 @@ html {
 
 }
 
+* {
 
+  padding: 0;
+  margin: 0;
+
+}
 .App {
 
 
@@ -97,10 +102,26 @@ background-color: aquamarine;
 
 }
 
+
+
+.search {
+
+width: 100%;
+display: flex;
+justify-content: center;
+background-color: beige;
+align-items: center;
+margin-bottom: 15px;
+}
+
+label {
+
+background-color: blue;
+
+}
+
 .search-bar {
-
-
-margin: auto;
+margin-left: 15px;
 background-color: bisque;
 width: 50%;
 
@@ -110,6 +131,19 @@ header {
 
 width: 100%;
 background-color: aquamarine;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding-bottom: 15px;
+margin-bottom: 15px;
+
+}
+
+.landing-page-heading{
+
+background-color: #282c34;
+color: aliceblue;
 
 
 }
+

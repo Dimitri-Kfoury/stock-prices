@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-
-
+import { createSlice , createAsyncThunk} from '@reduxjs/toolkit'
+ 
 
 export const updateOptionActionCreator = (option) => {
 
@@ -12,10 +11,13 @@ return {type: 'stockSearch/update', payload: option}
 
 }
 
+
+
+
 const initialState = {
 
-selectedOption: 'AAPL',
-isDisabled: false,
+selectedOption: '',
+
 
   }
 
@@ -27,7 +29,7 @@ const stockSearchSlice = createSlice({
     update(state,action){
 
         state.selectedOption = action.payload;
-        state.isDisabled = false;
+        
         
 
     }
@@ -36,5 +38,4 @@ const stockSearchSlice = createSlice({
 
 export default stockSearchSlice.reducer;
 export const selectSelectedOption = (state) => state.stockSearch.selectedOption;
-export const selectIsDisabled = (state) => state.stockSearch.isDisabled;
 
