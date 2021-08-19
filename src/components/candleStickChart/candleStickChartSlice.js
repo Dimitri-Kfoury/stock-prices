@@ -19,16 +19,6 @@ export const fetchCandles = createAsyncThunk('stockRow/updateCandles', async (sy
 
 
 })
-/* {
-  "c": 222.22,
-  'd': 22.22,
-  'dp': '10%',
-  "h": 22263.31,
-  "l": 260.68,
-  "o": 261.07,
-  "pc": 259.45,
-  "t": 1582641000 
-} */
 const initialState = {
     candles: { symbol: '', data: []},
     configurationOptions: {},
@@ -67,6 +57,6 @@ const stockChartSlice = createSlice({
 );
 
 export default stockChartSlice.reducer;
-export const selectIsFetchingCandles = function (state) { return state.stockChartSlice.isFetchingCandles }
-export const selectCandles = function (state) { return state.stockChartSlice.candles }
-export const selectConfigurationOptions = function(state) {return state.stockChartSlice.configurationOptions}
+export const selectIsFetchingCandles = function (state) { return state.candleStickChartSlice.isFetchingCandles }
+export const selectCandles = function (state) { return state.candleStickChartSlice.candles }
+export const selectConfigurationOptions = function(state) {return state.candleStickChartSlice.configurationOptions}

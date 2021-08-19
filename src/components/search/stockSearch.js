@@ -4,7 +4,7 @@ import {updateOptionActionCreator} from './stockSearchSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select';
 import { quote,selectIsFetchingQuote } from '../stock-row/stockRowSlice';
-import { fetchCandles,selectIsFetchingCandles } from '../stockChart/stockChartSlice';
+import { fetchCandles,selectIsFetchingCandles } from '../candleStickChart/candleStickChartSlice';
 
 const options = [
   { value: 'AAPL', label: 'AAPL' },

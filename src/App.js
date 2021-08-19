@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { StockChart } from "./components/stockChart/StockChart";
+import { CandleStickChart } from "./components/candleStickChart/CandleStickChart";
 import { StockRow } from "./components/stock-row/StockRow";
 import { StockSearch } from './components/search/stockSearch'
 import { Provider } from 'react-redux'
@@ -51,7 +51,7 @@ function App() {
           </div>
 
           <div className="stock-chart">
-            <StockChart />
+            <CandleStickChart />
           </div>
         </main>
 
