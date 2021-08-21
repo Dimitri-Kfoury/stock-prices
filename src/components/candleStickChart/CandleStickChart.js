@@ -1,42 +1,75 @@
 
 
-import React,{useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import './candleStickChart.css'
-import {selectCandles,selectConfigurationOptions} from './candleStickChartSlice'
+import { selectCandles, selectConfigurationOptions } from './candleStickChartSlice'
 import { CandleStick } from './candleStickChartElements/CandleStick';
 
 
 
-export function CandleStickChart () {
-	
+export function CandleStickChart() {
 
-const candles = useSelector(selectCandles);
+	const configurationOptions = useSelector(selectConfigurationOptions);
+	const candles = useSelector(selectCandles);
+
+	useEffect(() => {
+/* 		console.log(candles)
+ */	})
+
+	const candlesData = candles.data;
+
+	//const candlesData = {c: [146.82], h: [146.97], l: [146.5], o: [146.5], s: 'ok',t: [1629460800]}
+
+
+	  const dataPoints = [];
+
+	  if (candlesData.s === 'ok'){
+
+
+const numberOfCandleSticks = candlesData.c.length;
+let maxX = Math.max(...candlesData['t']);
+let minX = Math.min(...candlesData['t']);
+let xAxisLength = maxX - minX;
+
+
+let minY = Math.min(...candlesData['l']);
+let maxY = Math.max(...candlesData['h']);
+let yAxisLength = maxY - minY;
+
+
+maxX += xAxisLength * 0.02;
+xAxisLength *= 1.02;
 
 
 
 
-const configurationOptions = useSelector(selectConfigurationOptions);
+/* maxY = 2 * maxY - minY;
+maxX = 2 * maxX - minX;
+yAxisLength *= 2;
+xAxisLength *= 2;
+ */
 
 
-		return (
+
+for(let i = 0; i< numberOfCandleSticks; i++){
+
+dataPoints.push(<CandleStick key={i} timestamp={((candlesData['t'][i] - minX) / xAxisLength) * 100} open={((maxY - candlesData['o'][i]) / yAxisLength) * 100} close={((maxY - candlesData['c'][i]) / yAxisLength) * 100} high={((maxY - candlesData['h'][i]) / yAxisLength) * 100} low={((maxY - candlesData['l'][i]) / yAxisLength) * 100}/>)
+
+
+}
+
+
+
+	  }
+	return (
 		<div className='candles-chart'>
-
-<svg width={45} height={500}>
-
-
-	<svg width='90%' height='90%' x='5%' y='5%'>
-		
-	<CandleStick bodyX={15} bodyY={15} bodyHeight={200} isBullish = {true} high={15} low={15}/>
-		
-		  </svg>
-
-{/* <CandleStick bodyX={30} bodyY={30} bodyHeight={90} isBullish = {true} upperShadowHeight={15} lowerShadowHeight={15}/>
-<CandleStick bodyX={80} bodyY={10} bodyHeight={30} isBullish = {true} upperShadowHeight={15} lowerShadowHeight={15}/>
-<CandleStick bodyX={110} bodyY={45} bodyHeight={50} isBullish = {true} upperShadowHeight={15} lowerShadowHeight={15}/>
-<CandleStick bodyX={140} bodyY={80} bodyHeight={70} isBullish = {true} upperShadowHeight={15} lowerShadowHeight={15}/> */}
-</svg>
+			<svg width='100%' height={500}>
+				<svg width='80%' height='50%' x='10%' y='25%'>
+					{dataPoints}
+				</svg>
+			</svg>
 		</div>
-		);
-	}
+	);
+}
 
