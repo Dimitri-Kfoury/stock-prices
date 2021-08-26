@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Stock prices visualizer
+
+This project is a single page redux application that shows stock market quotes and draws candle stick charts.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). To run the project you must have nodejs installed on your machine.
 
