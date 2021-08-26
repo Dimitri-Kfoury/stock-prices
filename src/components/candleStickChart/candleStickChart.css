@@ -1,10 +1,53 @@
 .candles-chart {
 
-
-background-color: rgba(138, 180, 180, 0.507);
     
 height: 100%;
 width: 100%;
-    
+
+
+border: 1px solid black;
+
 }
+
+.y-axis-label {
+
+transform: translate(5%,50%) rotate(-90deg);
+
+}
+
+
+.container-svg{
+
+
+    background-color: rgba(248, 248, 255);
+    min-width: 1000px;
+    min-height: 500px;
+    width: 100%;
+
+
+
+
+}
+
+.x-axis-label {
+
+    transform: translate(50%,97.5%);
+    
+    }
+
+.y-axis-values{
+
+
+font-size: 0.7rem;
+
+
+}
+
+.x-axis-values{
+
+
+    font-size: 0.7rem;
+    
+    
+    }
 

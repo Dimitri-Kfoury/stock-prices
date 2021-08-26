@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select';
 import { quote,selectIsFetchingQuote } from '../stock-row/stockRowSlice';
 import { fetchCandles,selectIsFetchingCandles } from '../candleStickChart/candleStickChartSlice';
+import { useMediaQuery } from 'react-responsive';
+
 
 const options = [
   { value: 'AAPL', label: 'AAPL' },
   { value: 'AMZN', label: 'AMZN' },
+  { value: 'MSFT', label: 'MSFT' },
  
 ];
 const customStyles = {
@@ -44,6 +47,8 @@ export const StockSearch = () => {
 const isDisabled = useSelector(selectIsFetchingQuote)
 const dispatch = useDispatch();
 
+const isSmallScreen = useMediaQuery({ query: '(max-width: 315px)' })
+
 useEffect(() => {
 
 
@@ -64,7 +69,7 @@ return (
   styles={customStyles}
   onChange={handleChange}
   options={options}
-  placeholder='search stocks'
+  placeholder={isSmallScreen ? '' : 'search stocks'}
   isDisabled={isDisabled}
 />);
 }

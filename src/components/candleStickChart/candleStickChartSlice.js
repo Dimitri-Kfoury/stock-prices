@@ -6,9 +6,9 @@ import { apiKey } from '../../constants';
 
 
 
-export const fetchCandles = createAsyncThunk('stockRow/updateCandles', async (symbol = '', thunk, resolution = 30, from = (Date.now() - 24 * 3600 * 1000), to = Date.now()) => {
+export const fetchCandles = createAsyncThunk('stockRow/updateCandles', async (symbol = '', thunk, resolution = 60, from = Math.floor(Date.now() / 1000) - 72 * 3600, to = Math.floor((Date.now()) / 1000)) => {
 
-    const response = await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${Math.floor(from / 1000)}&to=${Math.floor(to / 1000)}&token=${apiKey}`)
+    const response = await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}&token=${apiKey}`)
     const json = await response.json();
 
     return { symbol: symbol, data: json };

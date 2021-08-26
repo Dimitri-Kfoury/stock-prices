@@ -22,38 +22,36 @@ function App() {
 
     <Provider store={store}>
       <div className="App">
+
         <header>
-
           <h1 className='landing-page-heading'> Stock prices visualizer</h1>
-
-
-
         </header>
 
-
-<div className='search'>
-        <label> search for stocks</label>
-
-        <div className='search-bar'>
+        <div className='search'>
+          <label className='search-label'> search for stocks</label>
+          <div className='search-bar'>
             <StockSearch />
-
           </div>
-          </div>
+        </div>
 
         <main>
+          <section className='quote-section'>
+            <h3 className='quote-heading'>Quote</h3>
+            <div className="quote">
+              <StockRow symbol='AAPL' />
+            </div>
+          </section>
 
-
-
-
-          <div className="stock-table">
-           <StockRow symbol='AAPL'/>
-           
-          </div>
-
-          <div className="stock-chart">
-            <CandleStickChart />
-          </div>
+          <section className='chart-section'>
+            <h3 className='candlestick-chart-heading'>Candlestick Chart</h3>
+            <div className="stock-chart">
+              <CandleStickChart />
+            </div>
+          </section>
         </main>
+
+        <footer> Photo by <a href="https://unsplash.com/@bloggingguide?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Blogging Guide</a> on <a href="https://unsplash.com/s/photos/stock-market?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </footer>
 
       </div>
     </Provider>
