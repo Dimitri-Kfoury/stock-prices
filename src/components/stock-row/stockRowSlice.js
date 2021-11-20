@@ -16,17 +16,6 @@ export const quote = createAsyncThunk('stockRow/quote', async (option) => {
 })
 
 
-
-/* {
-  "c": 222.22,
-  'd': 22.22,
-  'dp': '10%',
-  "h": 22263.31,
-  "l": 260.68,
-  "o": 261.07,
-  "pc": 259.45,
-  "t": 1582641000 
-} */
 const initialState = {
   stockData: { symbol: '', data: {}},
 

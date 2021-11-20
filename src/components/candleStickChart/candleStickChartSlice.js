@@ -6,7 +6,7 @@ import { apiKey } from '../../constants';
 
 
 
-export const fetchCandles = createAsyncThunk('stockRow/updateCandles', async (symbol = '', thunk, resolution = 60, from = Math.floor(Date.now() / 1000) - 72 * 3600, to = Math.floor((Date.now()) / 1000)) => {
+export const fetchCandles = createAsyncThunk('candleStickChart/updateCandles', async (symbol = '', thunk, resolution = 60, from = Math.floor(Date.now() / 1000) - 72 * 3600, to = Math.floor((Date.now()) / 1000)) => {
 
     const response = await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}&token=${apiKey}`)
     const json = await response.json();
@@ -23,7 +23,7 @@ const initialState = {
 
 }
 
-const stockChartSlice = createSlice({
+const candleStickChartSlice = createSlice({
     name: "stockChart",
     initialState,
 
@@ -40,6 +40,7 @@ const stockChartSlice = createSlice({
             state.isFetchingCandles = false;
             state.failedToFetchCandles = false;
             state.candles = action.payload;
+        
 
         },
         [fetchCandles.rejected]: (state, action) => {
@@ -52,7 +53,7 @@ const stockChartSlice = createSlice({
 }
 );
 
-export default stockChartSlice.reducer;
-export const selectIsFetchingCandles = function (state) { return state.candleStickChartSlice.isFetchingCandles }
-export const selectCandles = function (state) { return state.candleStickChartSlice.candles }
-export const selectConfigurationOptions = function (state) { return state.candleStickChartSlice.configurationOptions }
+export default candleStickChartSlice.reducer;
+export const selectIsFetchingCandles = function (state) { return state.candleStickChart.isFetchingCandles }
+export const selectCandles = function (state) { return state.candleStickChart.candles }
+export const selectConfigurationOptions = function (state) { return state.candleStickChart.configurationOptions }

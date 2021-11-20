@@ -7,7 +7,7 @@ export default configureStore({
     reducer: {
       stockRow: stockRowSliceReducer,
       stockSearch: stockSearchSliceReducer,
-      candleStickChartSlice: candleStickChartSliceReducer,
+      candleStickChart: candleStickChartSliceReducer,
     }
   });
   

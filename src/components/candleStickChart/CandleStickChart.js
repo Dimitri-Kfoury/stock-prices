@@ -15,8 +15,6 @@ export function CandleStickChart() {
 
 	useEffect(() => {
 
-console.log(candles)
-
 	})
 
 	const candlesData = candles.data;
@@ -49,8 +47,6 @@ console.log(candles)
 		
 
 		const xAxisStep = 0.1 * xAxisLength;
-
-		console.log(xAxisLength)
 
 		// Drawing Y and X axis
 

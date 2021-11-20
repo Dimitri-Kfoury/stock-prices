@@ -6,9 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install packages
 
-Start by installing dependencies in the project directory and the nodejs terminal with:
+Start by installing dependencies in the project directory by typing in your terminal:
 
-### npm install
+### npm `install`
 
 ## Available Scripts
 
