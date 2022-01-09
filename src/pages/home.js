@@ -1,14 +1,14 @@
 import "./App.css";
 
-import { CandleStickChart } from "./components/candleStickChart/CandleStickChart";
-import { StockRow } from "./components/stock-row/StockRow";
-import { StockSearch } from './components/search/stockSearch'
+import { CandleStickChart } from "../components/candleStickChart/CandleStickChart";
+import { StockRow } from "../components/stock-row/StockRow";
+import { StockSearch } from '../components/search/stockSearch'
 import { Provider } from 'react-redux'
-import store from "./store";
+import store from "../store";
 import { useEffect } from "react";
 
 
-function App() {
+function Home() {
 
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function App() {
 
 
     <Provider store={store}>
-      <div className="App">
+      <div className="Home">
 
         <header>
           <h1 className='landing-page-heading'> Stock prices visualizer</h1>
@@ -58,4 +58,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
