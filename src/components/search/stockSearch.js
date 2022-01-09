@@ -4,7 +4,7 @@ import {updateOptionActionCreator} from './stockSearchSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select';
 import { quote,selectIsFetchingQuote } from '../stock-row/stockRowSlice';
-import { fetchCandles,selectIsFetchingCandles } from '../candleStickChart/candleStickChartSlice';
+import { fetchCandles } from '../candleStickChart/candleStickChartSlice';
 import { useMediaQuery } from 'react-responsive';
 
 

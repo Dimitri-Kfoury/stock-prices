@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { useMediaQuery } from 'react-responsive'
 
 export function CandleStick ({timestamp, high, low, open , close}) {
 

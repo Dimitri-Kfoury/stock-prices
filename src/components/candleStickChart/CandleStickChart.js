@@ -1,16 +1,15 @@
 
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './candleStickChart.css'
-import { selectCandles, selectConfigurationOptions } from './candleStickChartSlice'
+import { selectCandles } from './candleStickChartSlice'
 import { CandleStick } from './candleStickChartElements/CandleStick';
 
 
 
 export function CandleStickChart() {
 
-	const configurationOptions = useSelector(selectConfigurationOptions);
 	const candles = useSelector(selectCandles);
 
 	useEffect(() => {

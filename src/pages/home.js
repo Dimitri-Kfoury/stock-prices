@@ -5,16 +5,12 @@ import { StockRow } from "../components/stock-row/StockRow";
 import { StockSearch } from '../components/search/stockSearch'
 import { Provider } from 'react-redux'
 import store from "../store";
-import { useEffect } from "react";
 
 
 function Home() {
 
 
-  useEffect(() => {
 
-
-  }, [])
 
 
   return (
